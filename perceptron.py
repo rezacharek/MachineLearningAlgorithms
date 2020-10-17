@@ -29,6 +29,7 @@ class Perceptron:
     """
 
     def sign_of_classification(self, index, w, *argv):
+
         if not argv:
             return self.train_set_y[index] * np.dot(w, self.train_set_x[index])
         else:
@@ -37,18 +38,20 @@ class Perceptron:
     """Training the model"""
 
     def train(self):
-        (number_of_rows, _) = self.train_set_x.shape()
-        self.w = np.array((number_of_rows, 1))
+        (number_of_rows, number_of_cols) = self.train_set_x.shape
+        self.w = np.zeros((1, number_of_cols))
 
         while(True):
             count_wrong_classification = 0
 
             for i in range(len(self.train_set_x)):
-                if self.sign_of_classification(i,self.w):
-                    self.w += self.learning_rate*self.train_set_y[i]*self.train_set_x[i] 
+
+                if self.sign_of_classification(i,self.w) <= 0:
+                    self.w = np.add(self.w,self.learning_rate*self.train_set_y[i]*self.train_set_x[i]) 
                     count_wrong_classification += 1
             
             if count_wrong_classification == 0: break
+        
         return self
 
     """Predicts the classification based on the input
@@ -59,16 +62,15 @@ class Perceptron:
     
     def predict(self, test_set_x):
 
-        (number_of_rows, _) = test_set_x.shape()
-        self.predicted_y = np.array((number_of_rows,1))
-
-        for i in range(len(test_set_x)):
+        (number_of_rows, number_of_columns) = test_set_x.shape
+        self.predicted_y = np.arange(number_of_rows)
+        for i in range(number_of_rows):
             if np.dot(self.w, test_set_x[i]) > 0:
                 self.predicted_y[i] = 1
             else:
                 self.predicted_y[i] = -1
         
-        return self.predicted_y
+        return np.array(self.predicted_y)
 
 
 
