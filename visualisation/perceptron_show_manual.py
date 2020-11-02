@@ -18,14 +18,14 @@ def main():
         if event.button == 1:
             print('button=%d, x=%d, y=%d, xdata=%f, ydata=%f' %
                 (event.button, event.x, event.y, event.xdata, event.ydata))
-            plt.plot(event.xdata, event.ydata, 'ro', color="green")
+            plt.plot(event.xdata, event.ydata, 'ro', color="midnightblue")
             fig.canvas.draw()
             x_axis.append( [event.xdata, event.ydata] )
             y_axis.append(-1)
         if event.button == 3:
             print('button=%d, x=%d, y=%d, xdata=%f, ydata=%f' %
                 (event.button, event.x, event.y, event.xdata, event.ydata))
-            plt.plot(event.xdata, event.ydata, 'ro', color="red")
+            plt.plot(event.xdata, event.ydata, 'ro', color="darkmagenta")
             fig.canvas.draw()
             x_axis.append([event.xdata, event.ydata ] )
             y_axis.append(1)
@@ -49,14 +49,14 @@ def main():
 
             if (my_perceptron.prediction_error(np.array(x_axis), np.array(y_axis)) != 0):
                 print("here")
-                ax.set_facecolor('xkcd:crimson')
+                ax.set_facecolor('xkcd:salmon')
             else:
                 print("here")
-                ax.set_facecolor('xkcd:goldenrod')
+                ax.set_facecolor('xkcd:lightgreen')
             
 
             
-            ax.set_facecolor((1.0, 0.47, 0.42))
+            # ax.set_facecolor((1.0, 0.47, 0.42))
             fig.canvas.draw()
 
 
