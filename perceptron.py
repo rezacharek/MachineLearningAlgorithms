@@ -43,6 +43,7 @@ class Perceptron:
         (number_of_rows, number_of_cols) = self.train_set_x.shape
         self.w = np.zeros((1, number_of_cols + 1))
         iter = 0
+        self.historical_w = []
         while(iter < 10000):
             count_wrong_classification = 0
 
@@ -50,12 +51,13 @@ class Perceptron:
                 x_vector = self.train_set_x[i]
                 x_vector = np.concatenate(([1], x_vector))
                 if self.train_set_y[i] * np.dot(self.w, x_vector) <= 0:
-                    self.w = np.add(self.w,self.learning_rate*self.train_set_y[i]*x_vector) 
+                    self.w = np.add(self.w,self.learning_rate*self.train_set_y[i]*x_vector)
+                    self.historical_w.append(self.w[0])
                     count_wrong_classification += 1
             
             if count_wrong_classification == 0: break
             iter += 1
-        return self.w
+        return (self.w[0] ,self.historical_w)
 
     """Predicts the classification based on the input
 
