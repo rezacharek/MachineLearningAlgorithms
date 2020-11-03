@@ -23,16 +23,16 @@ class Adaline:
     def train(self):
         (number_of_rows, number_of_cols) = self.train_set_x.shape
         self.w = np.zeros((1, number_of_cols + 1))
-        self.train_set_x = np.vstack( [np.ones(number_of_cols), self.train_set_x])
+        self.train_set_x = np.c_[self.train_set_x,np.ones(number_of_rows)]
 
         for i in range(len(self.train_set_x)):
 
-                if np.dot(self.w, self.train_set_x[index]) < 0:
+                if np.dot(self.w, self.train_set_x[i]) < 0:
                     self.w = np.add(self.w,self.learning_rate*(self.train_set_y[i] + 1)*self.train_set_x[i]) 
                 else:
                     self.w = np.add(self.w,self.learning_rate*(self.train_set_y[i] - 1)*self.train_set_x[i]) 
         
-        return self
+        return self.w
     
     """Predicts the classification based on the input
 
@@ -41,7 +41,7 @@ class Adaline:
     """
     def predict(self, test_set_x):
         (number_of_rows, number_of_cols) = test_set_x.shape
-        test_set_x = np.vstack( [np.ones(number_of_cols), test_set_x ])
+        test_set_x = np.c_[test_set_x,np.ones(number_of_rows)]
         self.predicted_y = np.arange(number_of_rows)
 
         for i in range(number_of_rows):
@@ -51,6 +51,6 @@ class Adaline:
                 self.predicted_y[i] = -1
         
         return np.array(self.predicted_y)
-        
+
 
 
