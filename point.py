@@ -2,10 +2,7 @@ class Point:
     def __init__(self, points):
         self.points = points
     
-    # def __lt__(self, other):
-    #     return self.distance_from_origin() > other.distance_from_origin() 
-
-    def __sub__(self, other):
+  def __sub__(self, other):
         array_of_substracted_points = []
 
         for i in range(len(self.points)):
