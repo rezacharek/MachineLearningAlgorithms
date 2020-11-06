@@ -28,6 +28,10 @@ By excuting:
 ```bash
 python3 perceptron_show_iris.py
 ```
-One gets this image.
+
+One gets this image, showing that the algorithm well on the Iris dataset.
+
+
 ![Test Image 1](visualisation/Iris_Perceptron.png)
-Showing that the algorithm well on the Iris dataset.
+
+
