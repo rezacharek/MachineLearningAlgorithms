@@ -24,7 +24,7 @@ my_model.predict(X_test)
 
 ## Usage of Visualisation
 
-By excuting:
+By executing:
 ```bash
 python3 perceptron_show_iris.py
 ```
@@ -34,4 +34,15 @@ One gets this image, showing that the algorithm well on the Iris dataset.
 
 ![Test Image 1](visualisation/Iris_Perceptron.png)
 
+
+Now one can interactively input points to test Perceptron. To do so, all you need it to:
+```bash
+python3 perceptron_show_manual.py
+```
+And then click with the mouse on the plot. THe right mouse click will set the first class points and the left mouse click will set the second class. Once done, click on the "X" button. If the background becomes green then it means that the perceptron managed to separate the data, otherwise it was unsuccesful.
+
+![First_Manuel_Image](visualisation/Manual_Perceptron_1.png)
+
+
+![Second_Manuel_Image](visualisation/Manual_Perceptron_2.png)
 
