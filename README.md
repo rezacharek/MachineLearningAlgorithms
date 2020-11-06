@@ -24,3 +24,10 @@ my_model.predict(X_test)
 
 ## Usage of Visualisation
 
+By excuting:
+```bash
+python3 perceptron_show_iris.py
+```
+One gets this image.
+![Test Image 1](visualisation/Iris_Perceptron.png)
+Showing that the algorithm well on the Iris dataset.
