@@ -15,9 +15,9 @@ my_model.predict(X_test)
 ```
 A simple usage example for Adaline is:
 ```python
-from perceptron import Perceptron
+from adline import Adaline
 
-my_model = Perceptron()
+my_model = Adaline()
 my_model.train(X_train, Y_train)
 my_model.predict(X_test)
 ```
