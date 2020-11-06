@@ -46,3 +46,16 @@ And then click with the mouse on the plot. THe right mouse click will set the fi
 
 ![Second_Manuel_Image](visualisation/Manual_Perceptron_2.png)
 
+
+
+## Perceptron on MNIST
+What really is of interest if the use of much more complex data like hand-written digits. Perceptron was used to separate the 1 and 8 digits, but could be used for other digits. 
+To excute it and see by yourself all you need is to ype:
+```basch
+python3 perceptron_show_digits.py
+```
+
+Which gives us:
+
+![Alt Text](visualisation/perceptron_digits.gif)
+
