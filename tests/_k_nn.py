@@ -19,7 +19,15 @@ class TestKNN(unittest.TestCase):
         my_model = K_NN([[1,2],[1,4],[1,5],[2,3],[4,5],[-5,6],[1,1]], [-1,-1,1,1,1,1,-1], 3)
         random_point = [1,1]
         self.assertEqual(my_model.predict(random_point), -1)
+        self.assertEqual(my_model.predict([-5,6]), 1)
+        self.assertEqual(my_model.predict([-5,5]), 1)
+        self.assertEqual(my_model.predict([0,0]), -1)
 
+    def test_predict_3D(self):
+        my_model = K_NN([[1,2,-1],[1,4,0],[1,5,25],[2,3,33],[4,5,57],[-5,6,-23],[1,1,0]], [1,1,1,-1,1,1,1], 3)
+        random_point = [1,1,1]
+        self.assertEqual(my_model.predict(random_point), 1)
+        self.assertEqual(my_model.predict([-5,6,-22]), 1)
 
 if __name__ == '__main__':
     unittest.main()
